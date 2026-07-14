@@ -5,7 +5,7 @@ import { site } from "@/lib/content";
 
 export function CTA(): React.ReactElement {
   return (
-    <section id="contact" className="mx-auto w-full max-w-content px-6 pb-28">
+    <section id="cta" className="mx-auto w-full max-w-content px-6 pb-28">
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-navy/60 px-8 py-16 text-center sm:px-16">
           <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />

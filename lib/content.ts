@@ -79,7 +79,7 @@ export const site = {
   tagline: "Less dashboards. More answers.",
   description:
     "hexawyn is the open-source, self-hostable Kubernetes assistant that diagnoses incidents in seconds. Stop reading logs — ask why. 80% deterministic engine, 20% LLM polish.",
-  contactEmail: "contact@hexawyn.io",
+  contactEmail: "hello@hexawyn.com",
   githubUrl: "https://github.com/hexa-tools/hexawyn",
   discordUrl: "https://discord.gg/HH3WsrnNw",
   installCommand: "pip install hexawyn",
@@ -155,8 +155,8 @@ export const reliability = {
     {
       name: "Memory",
       share: 10,
-      role: "Similar-incident search (DuckDB, embeddings)",
-      why: "Semi-deterministic",
+      role: "Cosine search over past incidents in an encrypted local DuckDB",
+      why: "Semi-deterministic: auditable cosine × severity × recency ranking; only the embedding step is model-based",
       deterministic: true,
     },
     {
@@ -183,13 +183,13 @@ export const verification = {
 export const privacy = {
   heading: "Local-first by design",
   description:
-    "Your kubeconfig and raw logs never leave your machine. Conversations, incidents, metrics and history live in a local DuckDB file, on your servers.",
+    "Your kubeconfig and raw logs never leave your machine. Conversations, incidents, metrics and history live in an encrypted local DuckDB file (AES-GCM, keyed to your kubeconfig), on your servers.",
   note:
     "Full transparency: your question and its context transit through the control-plane. Your credentials and raw logs do not.",
   points: [
     "kubeconfig never leaves your machine",
     "Raw logs stay inside your cluster",
-    "No central database, no third-party cloud for your data",
+    "Memory encrypted at rest — no central database, no third-party cloud",
   ],
 };
 
