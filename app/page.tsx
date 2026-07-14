@@ -7,6 +7,7 @@ import { Technologies } from "@/components/sections/Technologies";
 import { Trust } from "@/components/sections/Trust";
 import { Community } from "@/components/sections/Community";
 import { PricingTeaser } from "@/components/sections/PricingTeaser";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { CTA } from "@/components/sections/CTA";
 
 export default function HomePage(): React.ReactElement {
@@ -21,6 +22,7 @@ export default function HomePage(): React.ReactElement {
       <Trust />
       <Community />
       <PricingTeaser />
+      <ContactForm />
       <CTA />
     </>
   );

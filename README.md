@@ -1,8 +1,6 @@
-[![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg?token=U74SIK9CTB)](https://codecov.io/gh/hexa-tools/hexawyn-web)
-
 # hexawyn-web
 
-[![Tests](https://img.shields.io/badge/tests-38_passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-41_passed-brightgreen.svg)]()
 [![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg)](https://codecov.io/gh/hexa-tools/hexawyn-web)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
 
