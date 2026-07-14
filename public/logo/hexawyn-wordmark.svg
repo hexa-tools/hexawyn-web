@@ -1,0 +1,21 @@
+<svg width="310" height="60" viewBox="0 0 310 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <text
+    x="0" y="30"
+    dominant-baseline="central"
+    font-family="Space Grotesk, Inter, sans-serif"
+    font-weight="700"
+    font-size="46"
+    letter-spacing="-2"
+    fill="#F0F4FF">hexa</text>
+
+  <text
+    x="112" y="30"
+    dominant-baseline="central"
+    font-family="Space Grotesk, Inter, sans-serif"
+    font-weight="700"
+    font-size="46"
+    letter-spacing="-2"
+    fill="#3B82F6">wyn</text>
+
+</svg>
