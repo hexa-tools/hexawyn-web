@@ -1,4 +1,10 @@
+[![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg?token=U74SIK9CTB)](https://codecov.io/gh/hexa-tools/hexawyn-web)
+
 # hexawyn-web
+
+[![Tests](https://img.shields.io/badge/tests-38_passed-brightgreen.svg)]()
+[![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg)](https://codecov.io/gh/hexa-tools/hexawyn-web)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
 
 > Less dashboards. More answers.
 
@@ -29,6 +35,7 @@ npm run typecheck      # tsc --noEmit
 npm run test           # unit tests
 npm run test:coverage  # unit tests + coverage report
 npm run build          # production build
+npm run badge          # refresh the tests badge in this README
 ```
 
 ## Deployment
