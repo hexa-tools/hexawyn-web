@@ -155,7 +155,7 @@ export const reliability = {
     {
       name: "Memory",
       share: 10,
-      role: "Cosine search over past incidents in an encrypted local DuckDB",
+      role: "Long-term incident memory — cosine search in an encrypted local DuckDB on your machine",
       why: "Semi-deterministic: auditable cosine × severity × recency ranking; only the embedding step is model-based",
       deterministic: true,
     },
@@ -183,13 +183,13 @@ export const verification = {
 export const privacy = {
   heading: "Local-first by design",
   description:
-    "Your kubeconfig and raw logs never leave your machine. Conversations, incidents, metrics and history live in an encrypted local DuckDB file (AES-GCM, keyed to your kubeconfig), on your servers.",
+    "Your kubeconfig and raw logs never leave your machine. hexawyn keeps a long-term memory of your incidents in an encrypted local DuckDB file (AES-GCM, keyed to your kubeconfig) — on your own machine, under ~/.hexawyn.",
   note:
     "Full transparency: your question and its context transit through the control-plane. Your credentials and raw logs do not.",
   points: [
     "kubeconfig never leaves your machine",
     "Raw logs stay inside your cluster",
-    "Memory encrypted at rest — no central database, no third-party cloud",
+    "Long-term incident memory stored locally, encrypted at rest — no central database",
   ],
 };
 
