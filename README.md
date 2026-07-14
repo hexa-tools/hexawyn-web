@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg?token=U74SIK9CTB)](https://codecov.io/gh/hexa-tools/hexawyn-web)
+
 # hexawyn-web
 
 [![Tests](https://img.shields.io/badge/tests-38_passed-brightgreen.svg)]()
