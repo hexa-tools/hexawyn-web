@@ -104,7 +104,7 @@ export const hero = {
   title: "Stop reading logs. Ask why.",
   subtitle:
     "hexawyn learns from your incidents and tells you the root cause in seconds — reliable answers backed by a deterministic engine, not just a chatty model.",
-  primaryCta: { label: "Get started", href: "#pricing" },
+  primaryCta: { label: "Get started", href: "/pricing" },
   secondaryCta: { label: "Star on GitHub", href: site.githubUrl },
 } as const;
 
@@ -286,7 +286,7 @@ export const trust = {
   description:
     "Built on hexagonal architecture and a decade of software-engineering discipline. Not vibe coding — every line is tested.",
   stats: [
-    { value: "6,500+", label: "automated tests" },
+    { value: "7,500+", label: "automated tests" },
     { value: "< 2 min", label: "to run the full test suite" },
     { value: "97%", label: "code coverage" },
     { value: "0", label: "vendor lock-in" },
@@ -354,7 +354,7 @@ export const pricingTiers: PricingTier[] = [
     features: [
       "1 cluster · 1 user",
       "Vanilla Kubernetes",
-      "Cost estimate + basic rightsizing",
+      "Cost estimate + basic cost optimization",
       "7-day health history",
       "CLI + MCP server",
       "GitHub issues support",
@@ -473,7 +473,7 @@ export const pricingMatrix: MatrixGroup[] = [
         values: [true, true, true, true, true],
       },
       {
-        label: "Rightsizing",
+        label: "Cost optimization",
         values: ["Basic", "Advanced", "Advanced", "Advanced", "Advanced"],
       },
       {
