@@ -59,7 +59,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen bg-ink text-cloud">
+      <body className="min-h-screen bg-ink text-cloud" suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>
         <Footer />
