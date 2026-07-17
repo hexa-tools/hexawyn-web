@@ -34,7 +34,7 @@ describe("site content", () => {
 
   it("uses the up-to-date, verifiable numbers", () => {
     const values = trust.stats.map((s) => s.value);
-    expect(values).toContain("6,500+");
+    expect(values).toContain("7,500+");
     expect(values).toContain("97%");
   });
 

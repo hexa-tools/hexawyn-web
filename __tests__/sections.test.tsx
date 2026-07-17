@@ -20,6 +20,13 @@ describe("marketing sections", () => {
     expect(screen.getAllByText("pip install hexawyn").length).toBeGreaterThan(0);
   });
 
+  it("Hero Star on GitHub button shows the GitHub logo and links to the repo", () => {
+    render(<Hero />);
+    const star = screen.getByRole("link", { name: /star on github/i });
+    expect(star).toHaveAttribute("href", "https://github.com/hexa-tools/hexawyn");
+    expect(star.querySelector('svg[data-icon="github"]')).not.toBeNull();
+  });
+
   it("Terminal renders the OOMKilled diagnosis demo", () => {
     render(<Terminal />);
     expect(screen.getByText(/OOMKilled/)).toBeInTheDocument();
@@ -59,7 +66,7 @@ describe("marketing sections", () => {
 
   it("Trust renders the verified stats", () => {
     render(<Trust />);
-    expect(screen.getByText("6,500+")).toBeInTheDocument();
+    expect(screen.getByText("7,500+")).toBeInTheDocument();
     expect(screen.getByText("97%")).toBeInTheDocument();
   });
 

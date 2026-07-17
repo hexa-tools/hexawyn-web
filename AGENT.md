@@ -90,6 +90,28 @@ Enforced deterministically by hexa_guard.py.
 
 ---
 
+## 0.1 🔴 MANDATORY — Never run git commands without explicit permission
+
+Claude Code and OpenCode agents must NEVER run ANY git command that mutates
+state without the developer's explicit permission. **No exceptions.**
+
+```bash
+# ❌ FORBIDDEN — never run these without permission
+git commit · git push · git merge · git rebase · git tag · git stash
+git branch · git checkout · git switch · git reset · git pull · git fetch
+# ... and any other state-mutating git command
+```
+
+Read-only commands (`git status`, `git log`, `git diff`, `git show`) are
+allowed for inspection.
+
+If you need to suggest a commit message, write it as text only:
+`Suggested commit message: feat(pricing): add Polar checkout links`
+
+Never run `git commit` yourself.
+
+---
+
 
 ## 0.5 Design Principles (MANDATORY — Always apply)
 
