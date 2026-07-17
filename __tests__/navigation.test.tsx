@@ -19,6 +19,15 @@ describe("Navbar", () => {
     fireEvent.click(toggle);
     expect(toggle).toHaveAttribute("aria-expanded", "true");
   });
+
+  it("Get started CTA links to the pricing page", () => {
+    render(<Navbar />);
+    const ctas = screen.getAllByRole("link", { name: /get started/i });
+    expect(ctas.length).toBeGreaterThan(0);
+    for (const cta of ctas) {
+      expect(cta).toHaveAttribute("href", "/pricing");
+    }
+  });
 });
 
 describe("Footer", () => {

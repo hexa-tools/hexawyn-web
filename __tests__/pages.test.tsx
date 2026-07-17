@@ -6,12 +6,18 @@ import PrivacyPage from "@/app/privacy/page";
 import { hero } from "@/lib/content";
 
 describe("pages", () => {
-  it("home page composes the hero and pricing", () => {
+  it("home page composes the hero without the pricing section", () => {
     render(<HomePage />);
     expect(screen.getByRole("heading", { name: hero.title })).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /Start free/i }),
-    ).toBeInTheDocument();
+      screen.queryByRole("heading", { name: /Start free/i }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("hero primary CTA links to the pricing page", () => {
+    render(<HomePage />);
+    const cta = screen.getAllByRole("link", { name: hero.primaryCta.label })[0];
+    expect(cta).toHaveAttribute("href", "/pricing");
   });
 
   it("terms page renders its legal sections", () => {

@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { PricingTable } from "@/components/sections/PricingTable";
-import { PricingTeaser } from "@/components/sections/PricingTeaser";
 import PricingPage from "@/app/pricing/page";
 import { pricingColumns, pricingMatrix, pricingFaq } from "@/lib/content";
 
@@ -22,18 +21,6 @@ describe("PricingTable", () => {
       screen.getByText("Investigations (credits) / month"),
     ).toBeInTheDocument();
     expect(screen.getByText("AWS EKS")).toBeInTheDocument();
-  });
-});
-
-describe("PricingTeaser", () => {
-  it("shows plan prices and links to the full pricing page", () => {
-    render(<PricingTeaser />);
-    expect(screen.getByText("$0")).toBeInTheDocument();
-    expect(screen.getByText("$99")).toBeInTheDocument();
-    const link = screen.getByRole("link", {
-      name: /see full pricing & compare plans/i,
-    });
-    expect(link).toHaveAttribute("href", "/pricing");
   });
 });
 
