@@ -379,7 +379,7 @@ export const pricingTiers: PricingTier[] = [
       "Email support",
     ],
     cta: "Choose Starter",
-    href: "https://buy.polar.sh/polar_cl_UFfvVzt9GVhWvIHNbK43I9pT7qSD9CbUhlNdl49b22W",
+    href: "https://buy.polar.sh/polar_cl_megF3NougFANsngxHrQ6p2qHBB7kTp9joFPgC2KNYnW",
     featured: false,
   },
   {
