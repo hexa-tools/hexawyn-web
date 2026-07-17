@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { GitHubIcon } from "@/components/ui/BrandIcons";
 import { CopyCommand } from "@/components/ui/CopyCommand";
 import { Terminal } from "@/components/sections/Terminal";
 import { hero, heroBadges, site } from "@/lib/content";
@@ -76,7 +77,7 @@ export function Hero(): React.ReactElement {
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-cloud hover:border-white/30"
             >
-              <Icon name="star" className="h-4 w-4 text-brand" />
+              <GitHubIcon className="h-4 w-4" />
               {hero.secondaryCta.label}
             </a>
           </motion.div>

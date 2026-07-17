@@ -49,7 +49,7 @@ export function Navbar(): React.ReactElement {
             <DiscordIcon />
           </a>
           <Link
-            href="#pricing"
+            href="/pricing"
             className="ml-1 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand/90"
           >
             Get started
@@ -110,7 +110,7 @@ export function Navbar(): React.ReactElement {
                 </a>
               </div>
               <Link
-                href="#pricing"
+                href="/pricing"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-lg bg-brand px-4 py-3 text-center text-sm font-semibold text-white"
               >
