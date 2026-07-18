@@ -398,7 +398,7 @@ export const pricingTiers: PricingTier[] = [
       "Priority support",
     ],
     cta: "Choose Team",
-    href: "#contact",
+    href: "https://buy.polar.sh/polar_cl_HvOiCngG2xKFejsp53UhrmE5pssYCCPWwZcES0rfult",
     featured: true,
   },
   {
@@ -417,7 +417,7 @@ export const pricingTiers: PricingTier[] = [
       "Dedicated Slack support",
     ],
     cta: "Choose Scale-up",
-    href: "#contact",
+    href: "https://buy.polar.sh/polar_cl_UFfvVzt9GVhWvIHNbK43I9pT7qSD9CbUhlNdl49b22W",
     featured: false,
   },
   {
