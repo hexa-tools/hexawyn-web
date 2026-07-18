@@ -144,6 +144,22 @@ describe("AdminDashboard", () => {
     cleanup();
   });
 
+  it("renders all three stat cards with links", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ clients: 3, active_subscriptions: 1, api_keys: 4 }),
+    } as Response));
+
+    render(<AdminDashboard />);
+    await waitFor(() => {
+      const links = screen.getAllByRole("link");
+      const hrefs = links.map((l) => l.getAttribute("href"));
+      expect(hrefs).toContain("/admin/clients");
+      expect(hrefs).toContain("/admin/subscriptions");
+      expect(hrefs).toContain("/admin/api-keys");
+    });
+  });
+
   it("shows loading then stats", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce({
       ok: true,
@@ -186,6 +202,22 @@ describe("AdminClients", () => {
 describe("AdminSubscriptions", () => {
   beforeEach(() => {
     cleanup();
+  });
+
+  it("renders table with empty state removed", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve([
+        { id: "s1", client_id: "c1", email: "alice@hexawyn.com", product: "hexawyn", plan: "starter",
+          status: "active", source: "polar", polar_subscription_id: null,
+          current_period_start: "2026-01-01", current_period_end: "2026-02-01", created_at: "2026-01-01" },
+      ]),
+    } as Response));
+
+    render(<AdminSubscriptions />);
+    await waitFor(() => {
+      expect(screen.getByText("starter")).toBeInTheDocument();
+    });
   });
 
   it("renders table with subscription data", async () => {
@@ -293,5 +325,13 @@ describe("AdminApiKeys", () => {
       expect(screen.getByText("revoke failed")).toBeInTheDocument();
     });
     window.confirm = originalConfirm;
+  });
+
+  it("shows error on initial load failure", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockRejectedValueOnce(new Error("load error")));
+    render(<AdminApiKeys />);
+    await waitFor(() => {
+      expect(screen.getByText("load error")).toBeInTheDocument();
+    });
   });
 });
