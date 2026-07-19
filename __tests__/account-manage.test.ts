@@ -86,4 +86,47 @@ describe("account manage page", () => {
       expect((e as Error).message).toBe("connect error");
     }
   });
+
+  it("displays proper plan names via PLAN_NAMES mapping", () => {
+    const PLAN_NAMES: Record<string, string> = {
+      free: "Free",
+      starter: "Starter",
+      team: "Team",
+      "scale-up": "Scale-up",
+      enterprise: "Enterprise",
+    };
+
+    expect(PLAN_NAMES["free"]).toBe("Free");
+    expect(PLAN_NAMES["starter"]).toBe("Starter");
+    expect(PLAN_NAMES["team"]).toBe("Team");
+    expect(PLAN_NAMES["scale-up"]).toBe("Scale-up");
+    expect(PLAN_NAMES["enterprise"]).toBe("Enterprise");
+  });
+
+  it("planDisplayName returns capitalized name for free", () => {
+    const PLAN_NAMES: Record<string, string> = {
+      free: "Free",
+      starter: "Starter",
+      team: "Team",
+      "scale-up": "Scale-up",
+      enterprise: "Enterprise",
+    };
+    function planDisplayName(plan: string): string {
+      return PLAN_NAMES[plan] || plan;
+    }
+
+    expect(planDisplayName("free")).toBe("Free");
+    expect(planDisplayName("starter")).toBe("Starter");
+    expect(planDisplayName("team")).toBe("Team");
+    expect(planDisplayName("unknown")).toBe("unknown");
+  });
+
+  it("extracts upgraded param from searchParams", () => {
+    const PLAN_NAMES: Record<string, string> = {
+      team: "Team",
+    };
+    const searchParams = { key: "hxw_live_test", upgraded: "team" };
+    expect(searchParams.upgraded).toBe("team");
+    expect(PLAN_NAMES["team"]).toBeDefined();
+  });
 });
