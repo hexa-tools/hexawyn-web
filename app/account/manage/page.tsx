@@ -1,5 +1,17 @@
 import { redirect } from "next/navigation";
 
+const PLAN_NAMES: Record<string, string> = {
+  free: "Free",
+  starter: "Starter",
+  team: "Team",
+  "scale-up": "Scale-up",
+  enterprise: "Enterprise",
+};
+
+function planDisplayName(plan: string): string {
+  return PLAN_NAMES[plan] || plan;
+}
+
 const PLANS = [
   { name: "Starter", value: "starter", price: "$19" },
   { name: "Team", value: "team", price: "$99" },
@@ -7,11 +19,11 @@ const PLANS = [
 ];
 
 interface Props {
-  searchParams: Promise<{ key?: string }>;
+  searchParams: Promise<{ key?: string; upgraded?: string }>;
 }
 
 export default async function ManagePage({ searchParams }: Props): Promise<React.ReactElement> {
-  const { key } = await searchParams;
+  const { key, upgraded } = await searchParams;
   const baseUrl = process.env.NEXT_PUBLIC_HEXA_CLOUD_URL || "https://api.hexawyn.com";
 
   if (!key || !key.startsWith("hxw_")) {
@@ -69,10 +81,18 @@ export default async function ManagePage({ searchParams }: Props): Promise<React
           Manage Your Subscription
         </h2>
 
+        {upgraded && PLAN_NAMES[upgraded] && (
+          <div className="mt-4 rounded-xl border border-green-500/30 bg-green-500/[0.08] p-4 text-center">
+            <p className="text-sm font-medium text-green-400">
+              Successfully upgraded to {PLAN_NAMES[upgraded]}!
+            </p>
+          </div>
+        )}
+
         <div className="mt-6 rounded-xl border border-brand/20 bg-brand/[0.06] p-5">
           <p className="text-sm text-cloud/50">Current plan</p>
           <p className="mt-1 text-2xl font-bold text-brand">
-            {PLANS.find((p) => p.value === currentPlan)?.name || currentPlan}
+            {planDisplayName(currentPlan)}
           </p>
           <p className="mt-1 text-sm text-cloud/50">
             Your API key: {key.slice(0, 16)}...
