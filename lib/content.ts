@@ -75,7 +75,7 @@ export type MatrixGroup = {
 
 export const site = {
   name: "hexawyn",
-  domain: "hexawyn.io",
+  domain: "hexawyn.com",
   tagline: "Less dashboards. More answers.",
   description:
     "hexawyn is the open-source, self-hostable Kubernetes assistant that diagnoses incidents in seconds. Stop reading logs — ask why. 80% deterministic engine, 20% LLM polish.",
