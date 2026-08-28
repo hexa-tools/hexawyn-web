@@ -34,4 +34,23 @@
   .text-gradient {
     @apply bg-gradient-to-br from-cloud via-cloud to-brand bg-clip-text text-transparent;
   }
+
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-play-state: paused;
+  }
 }

@@ -3,6 +3,7 @@
 [![Tests](https://img.shields.io/badge/tests-41_passed-brightgreen.svg)]()
 [![codecov](https://codecov.io/gh/hexa-tools/hexawyn-web/branch/main/graph/badge.svg)](https://codecov.io/gh/hexa-tools/hexawyn-web)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
+[![Discord](https://img.shields.io/badge/Discord-join-5865F2.svg?logo=discord&logoColor=white)](https://discord.gg/HH3WsrnNw)
 
 > Less dashboards. More answers.
 
