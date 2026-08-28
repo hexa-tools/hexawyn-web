@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Hero } from "@/components/sections/Hero";
+import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { Terminal } from "@/components/sections/Terminal";
 import { Problem } from "@/components/sections/Problem";
 import { Reliability } from "@/components/sections/Reliability";
@@ -11,7 +12,14 @@ import { Trust } from "@/components/sections/Trust";
 import { Community } from "@/components/sections/Community";
 import { Pricing } from "@/components/sections/Pricing";
 import { CTA } from "@/components/sections/CTA";
-import { hero, problem, useCases, pricingTiers, community } from "@/lib/content";
+import {
+  hero,
+  problem,
+  useCases,
+  pricingTiers,
+  community,
+  marqueeLogos,
+} from "@/lib/content";
 
 describe("marketing sections", () => {
   it("Hero shows the diagnostic-first headline and install command", () => {
@@ -25,6 +33,13 @@ describe("marketing sections", () => {
     const star = screen.getByRole("link", { name: /star on github/i });
     expect(star).toHaveAttribute("href", "https://github.com/hexa-tools/hexawyn");
     expect(star.querySelector('svg[data-icon="github"]')).not.toBeNull();
+  });
+
+  it("LogoMarquee renders every logo name twice for a seamless loop", () => {
+    render(<LogoMarquee />);
+    for (const logo of marqueeLogos) {
+      expect(screen.getAllByText(logo.name).length).toBe(2);
+    }
   });
 
   it("Terminal renders the OOMKilled diagnosis demo", () => {
@@ -66,7 +81,7 @@ describe("marketing sections", () => {
 
   it("Trust renders the verified stats", () => {
     render(<Trust />);
-    expect(screen.getByText("7,500+")).toBeInTheDocument();
+    expect(screen.getByText("8,000+")).toBeInTheDocument();
     expect(screen.getByText("97%")).toBeInTheDocument();
   });
 

@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { Problem } from "@/components/sections/Problem";
 import { Reliability } from "@/components/sections/Reliability";
 import { Assurance } from "@/components/sections/Assurance";
@@ -15,6 +16,7 @@ export default function HomePage(): React.ReactElement {
       <Hero />
       <Problem />
       <Reliability />
+      <LogoMarquee />
       <Assurance />
       <UseCases />
       <Technologies />

@@ -32,6 +32,11 @@ export type Technology = {
   category: string;
 };
 
+export type MarqueeLogo = {
+  name: string;
+  logoFile?: string;
+};
+
 export type Stat = {
   value: string;
   label: string;
@@ -264,7 +269,6 @@ export const technologies: Technology[] = [
   { name: "GCP Billing", category: "FinOps" },
   { name: "Argo CD", category: "GitOps & delivery" },
   { name: "Flux", category: "GitOps & delivery" },
-  { name: "Argo Rollouts", category: "GitOps & delivery" },
   { name: "Helm", category: "GitOps & delivery" },
   { name: "Kustomize", category: "GitOps & delivery" },
   { name: "Tekton", category: "GitOps & delivery" },
@@ -281,12 +285,74 @@ export const technologies: Technology[] = [
   { name: "MCP server", category: "Data & interfaces" },
 ];
 
+export const marqueeCaption = "Already speaks the language of your stack";
+
+const MARQUEE_LOGO_FILES: Partial<Record<string, string>> = {
+  Kubernetes: "kubernetes",
+  "Amazon EKS": "aws",
+  "Azure AKS": "azure",
+  "Google GKE": "google-cloud",
+  OpenShift: "openshift",
+  OpenTelemetry: "opentelemetry",
+  Prometheus: "prometheus",
+  Datadog: "datadog",
+  "AWS CloudWatch": "aws",
+  "AWS X-Ray": "aws",
+  "Azure Monitor": "azure",
+  "Azure Log Analytics": "azure",
+  "Google Cloud Ops": "google-cloud",
+  "GCP Managed Prometheus": "prometheus",
+  "AWS Cost Explorer": "aws",
+  "Azure Cost Management": "azure",
+  "GCP Billing": "google-cloud",
+  "Argo CD": "argo",
+  Flux: "flux",
+  Helm: "helm",
+  Tekton: "tekton",
+  Istio: "istio",
+  Trivy: "trivy",
+  Kyverno: "kyverno",
+  "OPA Gatekeeper": "opa",
+  "cert-manager": "cert-manager",
+  KEDA: "keda",
+  DuckDB: "duckdb",
+  Slack: "slack",
+  "MCP server": "mcp",
+};
+
+const CLOUD_MARQUEE_NAMES: Partial<Record<string, string>> = {
+  aws: "AWS Cloud",
+  azure: "Azure Cloud",
+  "google-cloud": "Google Cloud",
+};
+
+export const marqueeLogos: MarqueeLogo[] = (() => {
+  const seenCloudLogos = new Set<string>();
+  const logos: MarqueeLogo[] = [];
+
+  for (const tech of technologies) {
+    const logoFile = MARQUEE_LOGO_FILES[tech.name];
+    if (!logoFile) continue;
+
+    const cloudName = CLOUD_MARQUEE_NAMES[logoFile];
+    if (cloudName) {
+      if (seenCloudLogos.has(logoFile)) continue;
+      seenCloudLogos.add(logoFile);
+      logos.push({ name: cloudName, logoFile });
+    } else {
+      logos.push({ name: tech.name, logoFile });
+    }
+  }
+
+  return logos;
+})();
+
 export const trust = {
   heading: "A production-grade assistant, not a POC",
   description:
     "Built on hexagonal architecture and a decade of software-engineering discipline. Not vibe coding — every line is tested.",
   stats: [
-    { value: "7,500+", label: "automated tests" },
+    { value: "8,000+", label: "automated tests" },
     { value: "< 2 min", label: "to run the full test suite" },
     { value: "97%", label: "code coverage" },
     { value: "0", label: "vendor lock-in" },
@@ -360,7 +426,7 @@ export const pricingTiers: PricingTier[] = [
       "GitHub issues support",
     ],
     cta: "Start free",
-    href: site.githubUrl,
+    href: "/signup?plan=free",
     featured: false,
   },
   {
